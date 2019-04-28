@@ -1,36 +1,39 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-var router = express.Router();
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+var methodOverride = require('method-override');
+var logger = require('morgan');
+var mongoose = require('mongoose');
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname,'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+app.use(logger('dev'));
+app.use(jsonParser);
+
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
-app.get('/Astronomia.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '/Astronomia.html'));
-});
+index = require ('./routes/index');
+app.use('/index',index);
 
-app.get('/Fisica.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '/Fisica.html'));
-});
+astronomia = require ('./routes/Astronomia');
+app.use('/Astronomia',astronomia);
 
-app.get('/Matematica.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '/Matematica.html'));
-});
+fisica = require ('./routes/Fisica');
+app.use('/Fisica',fisica);
 
-app.get('/index.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'));
-});
+contacto = require ('./routes/Contacto');
+app.use('/Contacto',contacto);
 
-app.get('/Contacto.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '/Contacto.html'));
-});
+matematica = require ('./routes/Matematica');
+app.use('/Matematica',matematica);
 
-
-app.use('/', router);
-
+login = require ('.routes/Login');
+app.use('/Login', login);
 
 app.listen(8080);
