@@ -19,19 +19,19 @@ app.get('/', function (req, res) {
 });
 
 index = require ('./routes/index');
-app.use('/index',index);
+app.use('/index', index);
 
 astronomia = require ('./routes/Astronomia');
-app.use('/Astronomia',astronomia);
+app.use('/Astronomia', astronomia);
 
 fisica = require ('./routes/Fisica');
-app.use('/Fisica',fisica);
+app.use('/Fisica', fisica);
 
 contacto = require ('./routes/Contacto');
-app.use('/Contacto',contacto);
+app.use('/Contacto', contacto);
 
 matematica = require ('./routes/Matematica');
-app.use('/Matematica',matematica);
+app.use('/Matematica', matematica);
 
 login = require ('./routes/Login');
 app.use('/Login', login);
