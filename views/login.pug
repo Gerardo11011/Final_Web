@@ -4,8 +4,28 @@ head
   link(rel='stylesheet' href='/style.css')
   title Log In
 // <img src="Espacio.jpg" alt="Universo" style="width:1080px;height:400px;">
+head
+  meta(charset='utf-8')
+  link(rel='stylesheet' href='/style.css')
+  title Derivando El cielo
+h1 Log In
+ul
+  li
+    a(href='index') Principal
+  li
+    a(href='Fisica') Fisica
+  li
+    a(href='Matematica') Matematica
+  li
+    a(href='Astronomia') Astronomia
+  li
+    a(href='Contacto') Contacto
+  li
+    if logeado
+      a(href='login') Log out
+    else
+      a(href='login') Log in  
 <div class="log-form">
-  <h2>Login to your account</h2>
   <form>
     <input type="text" title="username" placeholder="username" />
     <input type="password" title="username" placeholder="password" />
