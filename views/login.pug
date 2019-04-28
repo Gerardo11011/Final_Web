@@ -1,35 +1,10 @@
-doctype html
-head
-  meta(charset='utf-8')
-  link(rel='stylesheet' href='/style.css')
-  title Log In
-// <img src="Espacio.jpg" alt="Universo" style="width:1080px;height:400px;">
-head
-  meta(charset='utf-8')
-  link(rel='stylesheet' href='/style.css')
-  title Derivando El cielo
-h1 Log In
-ul
-  li
-    a(href='index') Principal
-  li
-    a(href='Fisica') Fisica
-  li
-    a(href='Matematica') Matematica
-  li
-    a(href='Astronomia') Astronomia
-  li
-    a(href='Contacto') Contacto
-  li
-    if logeado
-      a(href='login') Log out
-    else
-      a(href='login') Log in  
-<div class="log-form">
-  <form>
-    <input type="text" title="username" placeholder="username" />
-    <input type="password" title="username" placeholder="password" />
-    <button type="submit" class="btn">Login</button>
-    <a class="forgot" href="#">Forgot Username?</a>
-  </form>
-</div><!--end log form -->
+extends layout.pug
+block content
+  <div class="log-form">
+    <form>
+      <input type="text" title="username" placeholder="username" />
+      <input type="password" title="username" placeholder="password" />
+      <button type="submit" class="btn">Login</button>
+      <a class="forgot" href="#">Forgot Username?</a>
+    </form>
+  </div><!--end log form -->
