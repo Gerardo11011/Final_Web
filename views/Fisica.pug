@@ -1,1 +1,5 @@
 extends layout.pug
+block content
+  ul
+    each article in titulos
+      li= article.titulo

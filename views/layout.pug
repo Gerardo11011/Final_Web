@@ -4,20 +4,21 @@ html
     meta(charset='utf-8')
     link(rel='stylesheet' href='/style.css')
     title Derivando El cielo
+    link(rel='icon', href='/Quantumfracture.ico')
   h1 Derivando el cielo
   // <img src="Espacio.jpg" alt="Universo" style="width:1080px;height:400px;">
-  ul
-    li
+  ul(id = 'menu')
+    li(class = 'menu')
       a(href='index') Principal
-    li
+    li(class = 'menu')
       a(href='Fisica') Fisica
-    li
+    li(class = 'menu')
       a(href='Matematica') Matematica
-    li
+    li(class = 'menu')
       a(href='Astronomia') Astronomia
-    li
+    li(class = 'menu')
       a(href='Contacto') Contacto
-    li
+    li(class = 'menu')
       if logeado
         a(href='login') Log out
       else
