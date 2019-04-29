@@ -1,6 +1,6 @@
 let mongoose = require ('mongoose');
-
-let articleschema = mongoose.Schema({
+var Schema = mongoose.Schema;
+let articleschema = new Schema({
   id:{
     type: String,
     require: true
@@ -28,4 +28,4 @@ let articleschema = mongoose.Schema({
 });
 
 
-let Article = module.exports = mongoose.model('article', articleschema);
+let article = module.exports = mongoose.model('article', articleschema, 'article');
