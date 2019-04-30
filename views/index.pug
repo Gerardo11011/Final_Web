@@ -1,2 +1,7 @@
 extends layout.pug
+block content
+  ul
+    each index in article
+      li #{index.cuerpo}
+      li #{index.titulo}
   
