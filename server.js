@@ -31,7 +31,7 @@ db.once('open', function() {
 
 //Pagina de inicio
 app.get('/', function (req, res) {
-  Article.find({}, function (err, art){
+  Article.find({}, function (err, article){
 
     if(err){
        console.log(err);
@@ -80,6 +80,10 @@ app.use('/Login', login);
 //Route para la pagina Agregar
 agregar = require ('./routes/Agregar');
 app.use('/Agregar', agregar);
+
+//Route para la pagina editar
+edit = require ('./routes/edit');
+app.use('/edit', edit)
 
 
 app.listen(8080);

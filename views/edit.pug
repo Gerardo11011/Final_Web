@@ -3,7 +3,7 @@ block content
   form(method='POST', action='/edit/'+article.id)
     #form-group
       label titulo:
-      input.form-control(name='titulo', type='text', value=article.titulos)
+      input.form-control(name='titulo', type='text', value=article.titulo)
       br
     #form-group
       label tema:
@@ -15,7 +15,7 @@ block content
       br
     #form-group
       label cuerpo:
-      textarea.form-control(name='cuerpo', type='text', value=article.cuerpo)
+      textarea.form-control(name='cuerpo')= article.cuerpo
       br
     #form-group
       label bibliografia:

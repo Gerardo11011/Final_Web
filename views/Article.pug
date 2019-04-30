@@ -2,3 +2,8 @@ extends layout
 
 block content
   h1= article.titulo
+  h5 Escrito por #{article.autor}
+  br
+  br
+  p= article.cuerpo
+  a.btn.btn-default(href='/edit/'+article._id) Editar

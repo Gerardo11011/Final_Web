@@ -43,9 +43,9 @@ router.get('/', function (req, res, next) {
    });
  });
 
- router.get('/edit_Article/:id', function (req, res, next){
+ router.get('/edit/:id', function (req, res, next){
    article.findById(req.params.id, function (err, article) {
-     res.render('edit_Article', {article: article})
+     res.render('edit', {article: article})
      return;
    });
  });
