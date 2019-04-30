@@ -1,10 +1,7 @@
 extends layout.pug
 block content
-  ul
+  ul.list-group
     each astronomia in articles
-      li= astronomia.titulo
-      li= astronomia.cuerpo
-      li= astronomia.autor
-      li= astronomia.bibliografia
-      li= astronomia.tema
-      br
+      li.list-group-item
+      a(href='Astronomia/'+astronomia._id)=astronomia.titulo
+      

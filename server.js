@@ -31,7 +31,15 @@ db.once('open', function() {
 
 //Pagina de inicio
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname+'/index.html'));
+  Article.find({}, function (err, art){
+
+    if(err){
+       console.log(err);
+    }
+    else {
+       res.render('index', {title : 'index', logeado: false, article: article});
+    }
+  });
 });
 
 //Route para la pagina index
@@ -72,5 +80,6 @@ app.use('/Login', login);
 //Route para la pagina Agregar
 agregar = require ('./routes/Agregar');
 app.use('/Agregar', agregar);
+
 
 app.listen(8080);

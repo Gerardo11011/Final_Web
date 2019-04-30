@@ -1,10 +1,7 @@
 extends layout.pug
 block content
-  ul
+  ul.list-group
     each fisica in articles
-      li= fisica.titulo
-      li= fisica.cuerpo
-      li= fisica.autor
-      li= fisica.bibliografia
-      li= fisica.tema
-      br
+      li.list-group-item
+      a(href='Fisica/'+fisica._id)=fisica.titulo
+    

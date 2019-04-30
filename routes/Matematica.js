@@ -17,4 +17,11 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.get('/:id', function (req, res, next) {
+  article.findById(req.params.id, function (err, article) {
+    res.render('Article', {article: article})
+    return;
+  });
+});
+
 module.exports = router;

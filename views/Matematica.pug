@@ -1,10 +1,6 @@
 extends layout.pug
 block content
-  ul
+  ul.list-group
     each matematica in articles
-      li= matematica.titulo
-      li= matematica.cuerpo
-      li= matematica.autor
-      li= matematica.bibliografia
-      li= matematica.tema
-      br
+      li.list-group-item
+      a(href='Matematica/'+matematica._id)=matematica.titulo
