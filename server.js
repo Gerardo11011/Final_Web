@@ -16,8 +16,11 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(logger('dev'));
-app.use(jsonParser);
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
+// parse application/json
+app.use(bodyParser.json())
 
 //error handle and check if conection was made
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -65,5 +68,9 @@ app.use('/Matematica', matematica);
 //Route para la pagina login
 login = require ('./routes/Login');
 app.use('/Login', login);
+
+//Route para la pagina Agregar
+agregar = require ('./routes/Agregar');
+app.use('/Agregar', agregar);
 
 app.listen(8080);

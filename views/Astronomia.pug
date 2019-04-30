@@ -1,1 +1,10 @@
 extends layout.pug
+block content
+  ul
+    each astronomia in articles
+      li= astronomia.titulo
+      li= astronomia.cuerpo
+      li= astronomia.autor
+      li= astronomia.bibliografia
+      li= astronomia.tema
+      br

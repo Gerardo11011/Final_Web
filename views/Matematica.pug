@@ -1,2 +1,10 @@
 extends layout.pug
-  
+block content
+  ul
+    each matematica in articles
+      li= matematica.titulo
+      li= matematica.cuerpo
+      li= matematica.autor
+      li= matematica.bibliografia
+      li= matematica.tema
+      br

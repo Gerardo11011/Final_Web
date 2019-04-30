@@ -12,8 +12,7 @@ router.get('/', function (req, res, next) {
        console.log(err);
     }
     else {
-       console.log(art);
-       res.render('Fisica', {title : 'Fisica', logeado: false, article: art});
+       res.render('index', {title : 'index', logeado: false, article: art});
     }
   });
 });

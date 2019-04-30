@@ -6,14 +6,14 @@ var db = mongoose.connection;
 var article = require ('../models/article')
 
 
+
 router.get('/', function (req, res, next) {
-  article.find({}, function (err, article){
+  article.find({'tema': 'Fisica'}, function (err, article){
 
     if(err){
        console.log(err);
     }
     else {
-       console.log(article);
        res.render('Fisica', {title : 'Fisica', logeado: false, articles: article});
     }
   });

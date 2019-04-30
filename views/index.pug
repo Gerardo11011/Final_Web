@@ -2,6 +2,10 @@ extends layout.pug
 block content
   ul
     each index in article
-      li #{index.cuerpo}
-      li #{index.titulo}
+      li= index.titulo
+      li= index.cuerpo
+      li= index.autor
+      li= index.bibliografia
+      li= index.tema
+      br
   
