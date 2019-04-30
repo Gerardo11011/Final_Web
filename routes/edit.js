@@ -14,4 +14,27 @@ router.get('/:id', function (req, res, next){
   });
 });
 
+router.post('/:id', function (req, res, next){
+  let art = {}
+  art.titulo = req.body.titulo
+  art.tema = req.body.tema
+  art.autor = req.body.autor
+  art.cuerpo = req.body.cuerpo
+  art.bibliografia = req.body.bibliografia
+  art.id = req.body.id
+
+
+  let query = {_id:req.params.id}
+
+  article.update(query, art, function(err){
+    if (err) {
+      console.log(err);
+      return;
+    }
+    else {
+      res.redirect('/index')
+    }
+  });
+});
+
 module.exports = router;

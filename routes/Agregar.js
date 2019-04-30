@@ -19,7 +19,6 @@ router.post('/', function (req, res, next){
   art.autor = req.body.autor
   art.cuerpo = req.body.cuerpo
   art.bibliografia = req.body.bibliografia
-  art.id = req.body.id
 
   art.save(function(err){
     if (err) {

@@ -1,10 +1,6 @@
 let mongoose = require ('mongoose');
 var Schema = mongoose.Schema;
 let articleschema = new Schema({
-  id:{
-    type: String,
-    require: true
-  },
   tema:{
     type: String,
     require: true
