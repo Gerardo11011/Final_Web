@@ -41,10 +41,14 @@ html
               span.sr-only (current)
       #navbar.collapse.navbar-collapse
         ul.nav.navbar-nav
-          li.nav-item
-            a.nav-link(href='/users/registrar') Registrar
-          li.nav-item
-            a.nav-link(href='/users/login') Login
+          if user
+            li.nav-item
+              a.nav-link(href='/users/logout') Logout
+          else
+            li.nav-item
+              a.nav-link(href='/users/registrar') Registrar
+            li.nav-item
+              a.nav-link(href='/users/login') Login
   .container
     != messages('message', locals)
     if errors
