@@ -48,6 +48,12 @@ html
             a.nav-link(href='Agregar') 
               | Agregar Noticia
               span.sr-only (current)
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/users/registrar') Registrar
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/users/login') Login
   .container
     != messages('message', locals)
     if errors

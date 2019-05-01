@@ -1,10 +1,12 @@
 extends layout.pug
 block content
-  <div class="log-form">
-    <form>
-      <input type="text" title="username" placeholder="username" />
-      <input type="password" title="username" placeholder="password" />
-      <button type="submit" class="btn">Login</button>
-      <a class="forgot" href="#">Forgot Username?</a>
-    </form>
-  </div><!--end log form -->
+  form(method='POST', action='/users/login')
+    #form-group
+      label Username:
+      input.form-control(name='username', type='text')
+      br
+    #form-group
+      label Contraseña:
+      input.form-control(name='contraseña', type='text')
+      br
+    input.btn.btn-success(type='submit', value='submit')

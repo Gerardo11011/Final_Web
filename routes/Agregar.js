@@ -19,18 +19,19 @@ router.post('/', function (req, res, next){
   req.checkBody('bibliografia','bibliografia es requerido').notEmpty();
   req.checkBody('tema','tema es requerido').notEmpty();
 
-   // Get Errors
+
    let errors = req.validationErrors();
 
    if(errors){
      res.render('Agregar', {title : 'Agregar', logeado: false, errors: errors})
-   } else {
+   }
+   else {
      let art = new article();
-     art.titulo = req.body.titulo
-     art.tema = req.body.tema
-     art.autor = req.body.autor
-     art.cuerpo = req.body.cuerpo
-     art.bibliografia = req.body.bibliografia
+     art.titulo = req.body.titulo;
+     art.tema = req.body.tema;
+     art.autor = req.body.autor;
+     art.cuerpo = req.body.cuerpo;
+     art.bibliografia = req.body.bibliografia;
 
      art.save(function(err){
        if(err){
@@ -38,7 +39,7 @@ router.post('/', function (req, res, next){
          return;
        }
        else {
-         req.flash('Exito','Articulo añadido');
+         req.flash('success','Articulo añadido');
          res.redirect('/');
        }
      });

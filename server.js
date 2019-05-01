@@ -33,19 +33,6 @@ db.once('open', function() {
   console.log('mongodb CONNECTED');
 });
 
-//Pagina de inicio
-app.get('/', function (req, res) {
-  Article.find({}, function (err, article){
-
-    if(err){
-       console.log(err);
-    }
-    else {
-       res.render('index', {title : 'index', logeado: false, article: article});
-    }
-  });
-});
-
 //express session middleware
 app.use(session({
   secret: 'keyboard cat',
@@ -78,6 +65,21 @@ app.use(expressValidator({
     };
   }
 }));
+
+//Pagina de inicio
+app.get('/', function (req, res) {
+  Article.find({}, function (err, article){
+
+    if(err){
+       console.log(err);
+    }
+    else {
+       res.render('index', {title : 'index', logeado: false, article: article});
+    }
+  });
+});
+
+
 
 //Route para la pagina index
 index = require ('./routes/index');

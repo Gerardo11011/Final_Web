@@ -14,6 +14,7 @@ router.get('/:id', function (req, res, next){
   });
 });
 
+//Actualiza un articulo
 router.post('/:id', function (req, res, next){
   let art = {}
   art.titulo = req.body.titulo
@@ -31,6 +32,7 @@ router.post('/:id', function (req, res, next){
       return;
     }
     else {
+      req.flash('success', 'Articulo actualizado')
       res.redirect('/index')
     }
   });
