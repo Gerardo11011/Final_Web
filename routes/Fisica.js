@@ -43,11 +43,23 @@ router.get('/', function (req, res, next) {
    });
  });
 
- router.get('/edit/:id', function (req, res, next){
-   article.findById(req.params.id, function (err, article) {
-     res.render('edit', {article: article})
-     return;
-   });
- });
+ // router.get('/edit/:id', function (req, res, next){
+ //   article.findById(req.params.id, function (err, article) {
+ //     res.render('edit', {article: article})
+ //     return;
+ //   });
+ // });
 
+
+// router.delete('/:id', function (req, res, next) {
+//   let query= {_id:req.params.id}
+//   article.remove(query,function(err){
+//     if (error) {
+//       console.log(err);
+//     }
+//     else {
+//       res.send('Succes');
+//     }
+//   });
+// });
 module.exports = router;

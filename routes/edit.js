@@ -21,7 +21,6 @@ router.post('/:id', function (req, res, next){
   art.autor = req.body.autor
   art.cuerpo = req.body.cuerpo
   art.bibliografia = req.body.bibliografia
-  art.id = req.body.id
 
 
   let query = {_id:req.params.id}
@@ -33,6 +32,19 @@ router.post('/:id', function (req, res, next){
     }
     else {
       res.redirect('/index')
+    }
+  });
+});
+
+router.delete('/:id', function (req, res, next) {
+  let query= {_id:req.params.id}
+  console.log('llego a la consola id');
+  article.remove(query,function(err){
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send('Succes');
     }
   });
 });
