@@ -19,8 +19,8 @@ $(document).ready(function(){
     $target = $(event.target);
     const id = $target.attr('data-id');
     console.log(id);
-    //alert("Hello! I am an alert box!!");
     handleFetch(id);
+    //alert("Hello! I am an alert box!!");
 
   });
 });
