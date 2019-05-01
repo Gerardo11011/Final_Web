@@ -3,17 +3,24 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+app.use(bodyParser.json())
+app.use( bodyParser.urlencoded({ extended: true }) );
+
 var methodOverride = require('method-override');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+
 const expressValidator = require ('express-validator');
 var session = require('express-session');
 const flash = require('connect-flash');
-mongoose.connect('mongodb://localhost/webdb', {useNewUrlParser: true});
-var db = mongoose.connection;
+const passport = require ('passport');
+
 let Article = require ('./models/article');
 let Users = require ('./models/user');
 
+const config = require ('./config/database');
+mongoose.connect(config.database, {useNewUrlParser: true});
+var db = mongoose.connection;
 
 
 app.use(express.static(path.join(__dirname,'public')));
@@ -23,8 +30,7 @@ app.use(logger('dev'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// parse application/json
-app.use(bodyParser.json())
+
 
 //error handle and check if conection was made
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -65,6 +71,15 @@ app.use(expressValidator({
     };
   }
 }));
+
+require('./config/passport')(passport)
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('*', function(req, res, next){
+  res.locals.user = req.user || null;
+  next();
+});
 
 //Pagina de inicio
 app.get('/', function (req, res) {
