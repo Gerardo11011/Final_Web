@@ -19,36 +19,35 @@ html
           a.nav-link(href='index')
             | Home 
             span.sr-only (current)
-        li.nav-item
+        li.nav-item.active
           a.nav-link(href='Fisica') 
             | Fisica
             span.sr-only (current)
-        li.nav-item
+        li.nav-item.active
           a.nav-link(href='Matematica')
             | Matematica
             span.sr-only (current)
-        li.nav-item
+        li.nav-item.active
           a.nav-link(href='Astronomia') 
             | Astronomia
             span.sr-only (current)
-        li.nav-item
+        li.nav-item.active
           a.nav-link(href='Contacto') 
             | Contacto
             span.sr-only (current)
-          li.nav-item
+          li.nav-item.active
             a.nav-link(href='Agregar') 
               | Agregar Noticia
               span.sr-only (current)
-      #navbar.collapse.navbar-collapse
-        ul.nav.navbar-nav
-          if user
-            li.nav-item
-              a.nav-link(href='/users/logout') Logout
-          else
-            li.nav-item
-              a.nav-link(href='/users/registrar') Registrar
-            li.nav-item
-              a.nav-link(href='/users/login') Login
+      ul.nav.navbar-nav
+        if user
+          li.nav-item.active
+            a.nav-link(href='/users/logout') Logout
+        else
+          li.nav-item.active
+            a.nav-link(href='/users/registrar') Registrar
+          li.nav-item.active
+            a.nav-link(href='/users/login') Login
   .container
     != messages('message', locals)
     if errors
