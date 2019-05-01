@@ -20,7 +20,7 @@ $(document).ready(function(){
     const id = $target.attr('data-id');
     console.log(id);
     handleFetch(id);
-    //alert("Hello! I am an alert box!!");
+    alert("Borrado con exito");
 
   });
 });

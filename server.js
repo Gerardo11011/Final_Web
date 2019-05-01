@@ -6,9 +6,13 @@ const jsonParser = bodyParser.json();
 var methodOverride = require('method-override');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+const expressValidator = require ('express-validator');
+var session = require('express-session');
+const flash = require('connect-flash');
 mongoose.connect('mongodb://localhost/webdb', {useNewUrlParser: true});
 var db = mongoose.connection;
-let Article = require ('./models/article')
+let Article = require ('./models/article');
+let Users = require ('./models/user');
 
 
 
@@ -41,6 +45,39 @@ app.get('/', function (req, res) {
     }
   });
 });
+
+//express session middleware
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Express Messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+
+// Express Validator Middleware
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 //Route para la pagina index
 index = require ('./routes/index');
@@ -83,8 +120,10 @@ app.use('/Agregar', agregar);
 
 //Route para la pagina editar
 edit = require ('./routes/edit');
-app.use('/edit', edit)
+app.use('/edit', edit);
 
+usuarios = require ('./routes/users');
+app.use('/users', usuarios);
 
 
 

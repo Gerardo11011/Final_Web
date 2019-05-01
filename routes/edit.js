@@ -39,7 +39,7 @@ router.post('/:id', function (req, res, next){
 router.delete('/:id', function (req, res, next) {
   let query= {_id:req.params.id}
   console.log('llego a la consola id');
-  article.remove(query,function(err){
+  article.deleteMan(query,function(err){
     if (err) {
       console.log(err);
     }

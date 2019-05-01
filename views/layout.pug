@@ -48,7 +48,12 @@ html
             a.nav-link(href='Agregar') 
               | Agregar Noticia
               span.sr-only (current)
-  
+  .container
+    != messages('message', locals)
+    if errors
+      each error, i in errors
+        div(class="alert alert-danger") #{error.msg}
+  block content    
    h2 #{title}
    //script(src='../bower_components/jquery/dist/jquery.js')
    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
