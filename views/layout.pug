@@ -35,23 +35,14 @@ html
           a.nav-link(href='Contacto') 
             | Contacto
             span.sr-only (current)
-        li.nav-item
-          if logeado
-            a.nav-link(href='login') 
-              | Log out
-              span.sr-only (current)
-          else
-            a.nav-link(href='login') 
-              | Log in
-              span.sr-only (current)
           li.nav-item
             a.nav-link(href='Agregar') 
               | Agregar Noticia
               span.sr-only (current)
-        ul.navbar-nav.mr-auto
+      #navbar.collapse.navbar-collapse
+        ul.nav.navbar-nav
           li.nav-item
             a.nav-link(href='/users/registrar') Registrar
-        ul.navbar-nav.mr-auto
           li.nav-item
             a.nav-link(href='/users/login') Login
   .container
