@@ -8,13 +8,11 @@ var article = require ('../models/article')
 
 router.get('/:id', function (req, res, next){
   article.findById(req.params.id, function (err, article) {
-    console.log(article);
     res.render('edit', {article: article})
     return;
   });
 });
 
-//Actualiza un articulo
 router.post('/:id', function (req, res, next){
   let art = {}
   art.titulo = req.body.titulo
@@ -32,7 +30,6 @@ router.post('/:id', function (req, res, next){
       return;
     }
     else {
-      req.flash('success', 'Articulo actualizado')
       res.redirect('/index')
     }
   });
@@ -41,7 +38,7 @@ router.post('/:id', function (req, res, next){
 router.delete('/:id', function (req, res, next) {
   let query= {_id:req.params.id}
   console.log('llego a la consola id');
-  article.deleteMan(query,function(err){
+  article.remove(query,function(err){
     if (err) {
       console.log(err);
     }

@@ -6,7 +6,8 @@ const jsonParser = bodyParser.json();
 app.use(bodyParser.json())
 app.use( bodyParser.urlencoded({ extended: true }) );
 
-var methodOverride = require('method-override');
+var methodOverride = require('method-override')
+app.use(methodOverride('_method'));
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
