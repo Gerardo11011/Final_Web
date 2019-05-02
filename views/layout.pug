@@ -37,13 +37,19 @@ html
             | Astronomia
             span.sr-only (current)
         li.nav-item.active
+          a.nav-link(href='variados') 
+            | Variados
+            span.sr-only (current)
+        li.nav-item.active
           a.nav-link(href='Contacto') 
             | Contacto
             span.sr-only (current)
-          li.nav-item.active
-            a.nav-link(href='Agregar') 
-              | Agregar Noticia
-              span.sr-only (current)
+        if user
+          if user.role == 'admin'
+            li.nav-item.active
+              a.nav-link(href='Agregar') 
+                | Agregar Noticia
+                span.sr-only (current)
       ul.nav.navbar-nav
         if user
           li.nav-item.active

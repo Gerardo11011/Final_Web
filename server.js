@@ -143,6 +143,8 @@ app.use('/edit', edit);
 usuarios = require ('./routes/users');
 app.use('/users', usuarios);
 
+varia = require ('./routes/Variados');
+app.use('/Variados', varia);
 
 
 app.listen(8080);
