@@ -45,6 +45,15 @@ html
             | Contacto
             span.sr-only (current)
         if user
+          li.nav-item.active
+            a.nav-link(href='Favoritos') 
+              | Favoritos
+              span.sr-only (current)
+          li.nav-item.active
+            a.nav-link(href='agregarFav') 
+              | Añadir favoritos
+              span.sr-only (current)      
+        if user
           if user.role == 'admin'
             li.nav-item.active
               a.nav-link(href='Agregar') 

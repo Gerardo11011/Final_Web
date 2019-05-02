@@ -3,10 +3,12 @@ extends layout
 block content
   h1= article.titulo
   h5 Escrito por #{article.autor}
+  p= "ID del articulo "+article._id
   br
   br
   p= article.cuerpo
   if user
     if user.role == 'admin'
       a.btn.btn-info(href='/edit/'+article._id) Editar
+  button.btn.btn-success(type='button', data-id= article._id, id='favo', href='/Favoritos/'+article._id) Favorito
   a.btn.btn-primary(href='/index') Regresar

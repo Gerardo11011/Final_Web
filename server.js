@@ -146,5 +146,10 @@ app.use('/users', usuarios);
 varia = require ('./routes/Variados');
 app.use('/Variados', varia);
 
+favo = require ('./routes/Favoritos');
+app.use('/Favoritos', favo);
+
+annadir = require ('./routes/agregarFav');
+app.use('/agregarFav', annadir);
 
 app.listen(8080);
