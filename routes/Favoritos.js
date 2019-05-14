@@ -19,9 +19,14 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-  article.findById(req.params.id, function (err, favor) {
-    res.render('Article', {article: favor})
-    return;
+  favorio.find({ usuarioID: req.params.id}, function (err, art) {
+    console.log(req.params.id);
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.render('Favoritos', { title: 'Favorito', logeado: false, article: art });
+    }
   });
 });
 

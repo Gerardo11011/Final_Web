@@ -13,11 +13,11 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next){
-  req.checkBody('titulo','titulo es requerido').notEmpty();
-  req.checkBody('autor','autor es requerido').notEmpty();
-  req.checkBody('cuerpo','cuerpo es requerido').notEmpty();
-  req.checkBody('bibliografia','bibliografia es requerido').notEmpty();
-  req.checkBody('tema','tema es requerido').notEmpty();
+  req.checkBody('titulo','Title is required').notEmpty();
+  req.checkBody('autor','Author is required').notEmpty();
+  req.checkBody('cuerpo','Body is required').notEmpty();
+  req.checkBody('bibliografia','Bibliography is required').notEmpty();
+  req.checkBody('tema','theme is required').notEmpty();
 
 
    let errors = req.validationErrors();

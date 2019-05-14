@@ -2,10 +2,10 @@ extends layout.pug
 block content
   ul
     each index in article
-      li= index.titulo
-      li= index.cuerpo
-      li= index.autor
-      li= index.bibliografia
-      li= index.tema
+      h3= index.titulo
+      h5= index.cuerpo
+      h5= index.autor
+      h5= index.bibliografia
+      h5= index.tema
       br
   
