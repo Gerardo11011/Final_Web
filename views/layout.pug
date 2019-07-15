@@ -15,15 +15,11 @@ html
    h1 Derivando el cielo
    // <img src="Espacio.jpg" alt="Universo" style="width:1080px;height:400px;">
    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
-    a.navbar-brand(href='http://localhost:8080/index') Derivando el cielo
+    a.navbar-brand(href='http://localhost:8080/index') Home
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-  expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarsExampleDefault.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
-        li.nav-item.active
-          a.nav-link(href='http://localhost:8080/index')
-            | Home 
-            span.sr-only (current)
         li.nav-item.active
           a.nav-link(href='http://localhost:8080/Fisica') 
             | Physics
@@ -39,10 +35,6 @@ html
         li.nav-item.active
           a.nav-link(href='http://localhost:8080/variados') 
             | Other Topics
-            span.sr-only (current)
-        li.nav-item.active
-          a.nav-link(href='http://localhost:8080/Contacto') 
-            | Contact
             span.sr-only (current)
         if user
           li.nav-item.active
